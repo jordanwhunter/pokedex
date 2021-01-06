@@ -1,3 +1,7 @@
 .navbar {
   background-color: #ef5350 !important;
 }
+
+.navbar__text {
+  color: white !important;
+}
