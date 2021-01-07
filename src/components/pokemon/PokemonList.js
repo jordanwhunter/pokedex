@@ -3,7 +3,12 @@ import PokemonCard from './PokemonCard';
 
 const PokemonList = () => {
   return (
-    <div>
+    <div className="row">
+      <PokemonCard />
+      <PokemonCard />
+      <PokemonCard />
+      <PokemonCard />
+      <PokemonCard />
       <PokemonCard />
     </div>
   )
