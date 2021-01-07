@@ -1,10 +1,10 @@
 import React from 'react';
-import PokemonList from "../pokemon/PokemonList";
+import PokemonList from '../pokemon/PokemonList';
 
 const Dashboard = () => {
   return (
-    <div className="row">
-      <div className="col">
+    <div className='row'>
+      <div className='col'>
         <PokemonList />
       </div>
       
