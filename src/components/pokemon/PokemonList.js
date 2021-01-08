@@ -7,11 +7,10 @@ const PokemonList = () => {
   const [currentPageUrl, setCurrentPageUrl] = useState('https://pokeapi.co/api/v2/pokemon')
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    
+  const fetchData = async () => {
     setLoading(true)
     let cancel
-    axios.get(currentPageUrl, {
+    await axios.get(currentPageUrl, {
       // to avoid a race condition (in the event the user calls multiple times before request completes), we need to use a cancelToken so requests are not overridden. cancelToken is built into axios.
       cancelToken: new axios.CancelToken(c => cancel = c)
     }).then(res => {
@@ -22,8 +21,13 @@ const PokemonList = () => {
     })
 
     return () => cancel()
+  }
 
-  // every time currentPageUrl changes, this will trigger the useEffect hook and refresh the application
+  useEffect(() => {
+    
+    fetchData();
+
+    // every time currentPageUrl changes, this will trigger the useEffect hook and refresh the application
   }, [currentPageUrl])
 
   if (loading) return "Loading Your Pokémon..."
