@@ -17,7 +17,8 @@ const PokemonList = () => {
     }).then(res => {
       // change loading setting to false since initial loading setting is true - telling the app that the page needs to be loaded
       setLoading(false)
-      setPokemon(res.data.results.map(p => p.name))
+      console.log(res.data.results)
+      setPokemon(res.data.results)
     })
 
     return () => cancel()
@@ -31,11 +32,11 @@ const PokemonList = () => {
     <>
       {pokemon ? (
         <div className='row'>
-          {pokemon.map(() => (
+          {pokemon.map((i) => (
             <PokemonCard
-              key={pokemon.name} 
-              pokemon={pokemon}
-              url={pokemon.url}
+              key={i.name} 
+              pokemon={i.name}
+              url={i.url}
             />
           ))}
         </div>
