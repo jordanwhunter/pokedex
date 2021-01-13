@@ -60,12 +60,12 @@ const PokemonList = () => {
       ) : (
         <h1>Loading</h1>
       )}
-      <div className='row'>
-        <Pagination 
-          goToNextPage={nextPageUrl ? goToNextPage : null}
-          goToPrevPage={prevPageUrl ? goToPrevPage : null}
-        />
-      </div>  
+        <div className='row'>
+          <Pagination
+            goToNextPage={nextPageUrl ? goToNextPage : null}
+            goToPrevPage={prevPageUrl ? goToPrevPage : null}
+          />
+        </div>  
     </>
   )
 }
