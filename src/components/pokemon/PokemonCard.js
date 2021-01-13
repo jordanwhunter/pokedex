@@ -4,11 +4,15 @@ import React, { useEffect, useState } from 'react';
 const PokemonCard = ({ pokemon, url }) => {
   const [sprite, setSprite] = useState('')
 
-  useEffect(() => {
-    axios.get('https://pokeapi.co/api/v2/pokemon/' + pokemon)
+  const fetchSprites = async () => {
+    await axios.get('https://pokeapi.co/api/v2/pokemon/' + pokemon)
       .then (res => {
         setSprite(res.data.sprites.front_default)
       })
+  }
+
+  useEffect(() => {
+    fetchSprites()
   }, [pokemon])
 
   // const name = this.props.name;
@@ -17,9 +21,11 @@ const PokemonCard = ({ pokemon, url }) => {
     <div className='col-md-3 col-sm-6 mb-5'>
       <div className='card'>
         <div className='card-header'>
-            {pokemon}
+          <center>
+            <h6>{pokemon}</h6>
             <br />
             <img src={sprite} alt='Pokémon Sprite' />
+          </center>
         </div>
       </div>
     </div>
