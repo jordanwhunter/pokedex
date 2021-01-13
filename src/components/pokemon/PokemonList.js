@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import PokemonCard from './PokemonCard';
+import Pagination from '../layout/Pagination';
 import axios from 'axios';
 
 const PokemonList = () => {
   const [pokemon, setPokemon] = useState([])
   const [currentPageUrl, setCurrentPageUrl] = useState('https://pokeapi.co/api/v2/pokemon')
   const [loading, setLoading] = useState(true)
+  const [nextPageUrl, setNextPageUrl] = useState()
+  const [prevPageUrl, setPrevPageUrl] = useState()
 
   const fetchData = async () => {
     setLoading(true)
@@ -18,6 +21,8 @@ const PokemonList = () => {
       setLoading(false)
       console.log(res.data.results)
       setPokemon(res.data.results)
+      setNextPageUrl(res.data.next)
+      setPrevPageUrl(res.data.previous)
     })
 
     return () => cancel()
@@ -29,6 +34,14 @@ const PokemonList = () => {
 
     // every time currentPageUrl changes, this will trigger the useEffect hook and refresh the application
   }, [currentPageUrl])
+
+  const goToNextPage = () => {
+    setCurrentPageUrl(nextPageUrl)
+  }
+
+  const goToPrevPage = () => {
+    setCurrentPageUrl(prevPageUrl)
+  }
 
   if (loading) return "Loading Your Pokémon..."
 
@@ -46,7 +59,13 @@ const PokemonList = () => {
         </div>
       ) : (
         <h1>Loading</h1>
-      )}  
+      )}
+      <div className='row'>
+        <Pagination 
+          goToNextPage={nextPageUrl ? goToNextPage : null}
+          goToPrevPage={prevPageUrl ? goToPrevPage : null}
+        />
+      </div>  
     </>
   )
 }
