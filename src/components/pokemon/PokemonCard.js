@@ -1,5 +1,5 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const PokemonCard = ({ pokemon, url }) => {
   const [sprite, setSprite] = useState('')
@@ -21,11 +21,23 @@ const PokemonCard = ({ pokemon, url }) => {
     <div className='col-md-3 col-sm-6 mb-5'>
       <div className='card'>
         <div className='card-header'>
-          <center>
-            <h6>{pokemon}</h6>
-            <br />
-            <img src={sprite} alt='Pokémon Sprite' />
-          </center>
+            <center>
+              <h6>
+                {pokemon
+                  .toLowerCase()
+                  .split(' ')
+                  .map(
+                    letter => letter.charAt(0).toUpperCase() + letter.substring(1)
+                  )
+                  .join(' ')
+                }
+              </h6>
+              {/* <br /> */}
+              <img 
+              src={sprite} 
+              alt='Pokémon Sprite' 
+              />
+            </center>
         </div>
       </div>
     </div>
