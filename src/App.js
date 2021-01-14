@@ -1,4 +1,5 @@
 import React from 'react';
+import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 import NavBar from '../src/components/layout/NavBar';
 import Dashboard from './components/layout/Dashboard';
 import backgroundImage from './pokeball.png';
@@ -7,17 +8,19 @@ import './App.css';
 
 function App() {
   return (
-    <div 
-      className='App' 
-      style={{
-        background: `url(${backgroundImage})`
-      }}
-    >
-      <>
-        <NavBar />
-        <Dashboard />
-      </>
-    </div>
+    <Router>
+      <div 
+        className='App' 
+        style={{
+          background: `url(${backgroundImage})`
+        }}
+      >
+        <>
+          <NavBar />
+          <Dashboard />
+        </>
+      </div>
+    </Router>
   );
 }
 
