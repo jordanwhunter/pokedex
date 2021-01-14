@@ -9,9 +9,9 @@ function App() {
   return (
     <div 
       className='App' 
-      style={
-        { background: `url(${backgroundImage})`}
-      }
+      style={{
+        background: `url(${backgroundImage})`
+      }}
     >
       <>
         <NavBar />
