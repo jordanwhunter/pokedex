@@ -37,7 +37,7 @@ const PokemonList = () => {
     }).then(res => {
       // change loading setting to false since initial loading setting is true - telling the app that the page needs to be loaded
       setLoading(false)
-      console.log(res.data.results)
+      // console.log(res.data.results)
       setPokemon(res.data.results)
       setNextPageUrl(res.data.next)
       setPrevPageUrl(res.data.previous)
