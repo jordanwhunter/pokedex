@@ -68,8 +68,8 @@ const PokemonCard = ({ pokemon, url }) => {
               onLoad={() => setLoadImage(false)}
               onError={() => setTooManyRequests(true)}
               style={
-                tooManyRequests ? { display: "block"} :
-                loadImage ? null : { display: "block"}
+                tooManyRequests ? { display: 'block'} :
+                loadImage ? null : { display: 'block'}
               }
               />
               {/* {tooManyRequests ? (<h6 className='mx-auto'>
