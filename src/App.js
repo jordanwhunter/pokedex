@@ -1,5 +1,5 @@
 import React from 'react';
-import {HashRouter as Router, Route, Switch} from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from '../src/components/layout/NavBar';
 import Dashboard from './components/layout/Dashboard';
 import backgroundImage from './pokeball.png';
@@ -15,10 +15,12 @@ function App() {
           background: `url(${backgroundImage})`
         }}
       >
-        <>
-          <NavBar />
-          <Dashboard />
-        </>
+        <NavBar />
+        <div className='container'>
+          <Switch>
+            <Route exact path='/' component={Dashboard} />
+          </Switch>
+        </div>
       </div>
     </Router>
   );
