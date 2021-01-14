@@ -21,6 +21,18 @@ const Card = styled.div`
   -o-user-select: none;
 `;
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black; 
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+`;
+
 const PokemonCard = ({ pokemon, url }) => {
   const [sprite, setSprite] = useState('')
   const [loadImage, setLoadImage] = useState(true)
@@ -47,47 +59,49 @@ const PokemonCard = ({ pokemon, url }) => {
   // console.log(pokemon)
   return (
     <div className='col-md-3 col-sm-6 mb-5'>
-      <Card className='card'>
-        <p className='card-header'>{indexNum}</p>
-        {loadImage ? (
-          <img
-            className='card-img-top rounded mx-auto d-block mt-2'
-            src={gif}
-            alt='Loading'
-            style={{
-              width: '5em',
-              height: '5em'
-            }}
-          />
-        ) : null}
-        <div className='card-body'>
-            <center>
-              <Sprite
-              className='card-img-top rounded mx-auto mt-2' 
-              src={sprite} 
-              alt='Pokémon Sprite'
-              onLoad={() => setLoadImage(false)}
-              onError={() => setTooManyRequests(true)}
-              style={
-                tooManyRequests ? { display: 'block'} :
-                loadImage ? null : { display: 'block'}
-              }
-              />
-              {/* {tooManyRequests ? (<h6 className='mx-auto'>
-                <span className='badge badge-danger mt-2'>Too Many Requests</span>
-              </h6>) : null} */}
-              <h6>
-                {pokemon
-                  .toLowerCase()
-                  .split(' ')
-                  .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
-                  .join(' ')
+      <StyledLink to={`pokemon/${indexNum}`}>
+        <Card className='card'>
+          <p className='card-header'>{indexNum}</p>
+          {loadImage ? (
+            <img
+              className='card-img-top rounded mx-auto d-block mt-2'
+              src={gif}
+              alt='Loading'
+              style={{
+                width: '5em',
+                height: '5em'
+              }}
+            />
+          ) : null}
+          <div className='card-body'>
+              <center>
+                <Sprite
+                className='card-img-top rounded mx-auto mt-2' 
+                src={sprite} 
+                alt='Pokémon Sprite'
+                onLoad={() => setLoadImage(false)}
+                onError={() => setTooManyRequests(true)}
+                style={
+                  tooManyRequests ? { display: 'block'} :
+                  loadImage ? null : { display: 'block'}
                 }
-              </h6>
-              {/* <br /> */}
-            </center>
-        </div>
-      </Card>
+                />
+                {/* {tooManyRequests ? (<h6 className='mx-auto'>
+                  <span className='badge badge-danger mt-2'>Too Many Requests</span>
+                </h6>) : null} */}
+                <h6>
+                  {pokemon
+                    .toLowerCase()
+                    .split(' ')
+                    .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
+                    .join(' ')
+                  }
+                </h6>
+                {/* <br /> */}
+              </center>
+          </div>
+        </Card>
+      </StyledLink>
     </div>
   )
   
