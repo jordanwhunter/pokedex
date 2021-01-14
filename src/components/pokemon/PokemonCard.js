@@ -61,7 +61,8 @@ const PokemonCard = ({ pokemon, url }) => {
         ) : null}
         <div className='card-body'>
             <center>
-              <Sprite 
+              <Sprite
+              className='card-img-top rounded mx-auto mt-2' 
               src={sprite} 
               alt='Pokémon Sprite'
               onLoad={() => setLoadImage(false)}
