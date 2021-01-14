@@ -1,29 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 
 const PokemonCard = ({ pokemon, url }) => {
   const [sprite, setSprite] = useState('')
   const [indexNum] = useState(url.split('/')[url.split('/').length - 2])
 
-  const fetchSprites = async () => {
-    await axios.get('https://pokeapi.co/api/v2/pokemon/' + pokemon)
+  const Card = styled.div`
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  `;
+
+  // const fetchSprites = async () => {
+  //   await axios.get('https://pokeapi.co/api/v2/pokemon/' + pokemon)
+  //     .then (res => {
+  //       setSprite(res.data.sprites.front_default)
+  //     })
+  // }
+
+  useEffect(() => {
+    // fetchSprites()
+    axios.get('https://pokeapi.co/api/v2/pokemon/' + pokemon)
       .then (res => {
         setSprite(res.data.sprites.front_default)
       })
-  }
-
-  useEffect(() => {
-    fetchSprites()
   }, [pokemon])
 
   // const name = this.props.name;
   console.log(pokemon)
   return (
     <div className='col-md-3 col-sm-6 mb-5'>
-      <div className='card'>
+      <Card className='card'>
         <p className='card-header'>{indexNum}</p>
         <div className='card-body'>
             <center>
+              <img 
+              src={sprite} 
+              alt='Pokémon Sprite'
+              />
               <h6>
                 {pokemon
                   .toLowerCase()
@@ -33,13 +46,9 @@ const PokemonCard = ({ pokemon, url }) => {
                 }
               </h6>
               {/* <br /> */}
-              <img 
-              src={sprite} 
-              alt='Pokémon Sprite' 
-              />
             </center>
         </div>
-      </div>
+      </Card>
     </div>
   )
   
