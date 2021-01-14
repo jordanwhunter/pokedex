@@ -10,10 +10,28 @@ const PokemonList = () => {
   const [nextPageUrl, setNextPageUrl] = useState()
   const [prevPageUrl, setPrevPageUrl] = useState()
 
-  const fetchData = async () => {
+  // const fetchData = async () => {
+  //   setLoading(true)
+  //   let cancel
+  //   await axios.get(currentPageUrl, {
+  //     // to avoid a race condition (in the event the user calls multiple times before request completes), we need to use a cancelToken so requests are not overridden. cancelToken is built into axios.
+  //     cancelToken: new axios.CancelToken(c => cancel = c)
+  //   }).then(res => {
+  //     // change loading setting to false since initial loading setting is true - telling the app that the page needs to be loaded
+  //     setLoading(false)
+  //     console.log(res.data.results)
+  //     setPokemon(res.data.results)
+  //     setNextPageUrl(res.data.next)
+  //     setPrevPageUrl(res.data.previous)
+  //   })
+
+  //   return () => cancel()
+  // }
+
+  useEffect(() => {
     setLoading(true)
     let cancel
-    await axios.get(currentPageUrl, {
+    axios.get(currentPageUrl, {
       // to avoid a race condition (in the event the user calls multiple times before request completes), we need to use a cancelToken so requests are not overridden. cancelToken is built into axios.
       cancelToken: new axios.CancelToken(c => cancel = c)
     }).then(res => {
@@ -26,11 +44,7 @@ const PokemonList = () => {
     })
 
     return () => cancel()
-  }
-
-  useEffect(() => {
-    
-    fetchData();
+    // fetchData();
 
     // every time currentPageUrl changes, this will trigger the useEffect hook and refresh the application
   }, [currentPageUrl])
