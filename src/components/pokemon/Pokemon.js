@@ -30,7 +30,7 @@ const Pokemon = (props) => {
       <>
         <div>
           { `${id}.` }
-          {name
+          { name
             .toLowerCase()
             .split(' ')
             .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
@@ -39,6 +39,12 @@ const Pokemon = (props) => {
           <img
             src={ front_default }
             alt='Pokémon Sprite' 
+          />
+          <br />
+          <br />
+          <img
+            src={ fullImageUrl }
+            alt='Pokémon Large Pic' 
           />
         </div>
       </>
@@ -51,7 +57,7 @@ const Pokemon = (props) => {
         <img 
           src={gif}
           alt='Loading'
-      />
+        />
       }
       {pokemon !== undefined && pokemon && loadPokemonJsx(pokemon)}
       {pokemon === false && <h1> Pokemon not found</h1>} 
