@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import gif from '../../loading-wheel.gif';
 
 const Pokemon = (props) => {
   const { match } = props
   const { params } = match
   const { indexNum } = params
   
-  const [pokemon, setPokemon] = useState()
+  const [pokemon, setPokemon] = useState(undefined)
 
   useEffect(() => {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${indexNum}/`)
@@ -20,10 +21,41 @@ const Pokemon = (props) => {
       })
   }, [indexNum])
 
+  const loadPokemonJsx = () => {
+    const { name, id, species, height, weight, types, sprites} = pokemon
+    const { front_default } = sprites
+    const fullImageUrl = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`
+
+    return (
+      <>
+        <div>
+          { `${id}.` }
+          {name
+            .toLowerCase()
+            .split(' ')
+            .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
+            .join(' ')
+          }
+          <img
+            src={ front_default }
+            alt='Pokémon Sprite' 
+          />
+        </div>
+      </>
+    )
+  }
+
   return (
-    <div>
-      {`Test page for Pokémon #${indexNum}`}
-    </div>
+    <> 
+      {pokemon === undefined && 
+        <img 
+          src={gif}
+          alt='Loading'
+      />
+      }
+      {pokemon !== undefined && pokemon && loadPokemonJsx(pokemon)}
+      {pokemon === false && <h1> Pokemon not found</h1>} 
+    </>
   )
 }
 
