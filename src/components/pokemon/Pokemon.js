@@ -87,10 +87,24 @@ const Pokemon = (props) => {
                 }`
               }
             </div>
-          })}
+          }) }
           <br />
           <br />
-          {  }
+          { abilities.map((abilityInfo) => {
+            const { ability } = abilityInfo;
+            const { name } = ability;
+            return <div
+              key={name}
+            >
+              {`${name
+                  .toLowerCase()
+                  .split('-')
+                  .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
+                  .join('-')
+                }`
+              }
+            </div>
+          }) }
           <br />
           <br />
           <img
