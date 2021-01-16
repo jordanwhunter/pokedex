@@ -8,6 +8,8 @@ const Pokemon = (props) => {
   const { indexNum } = params
   
   const [pokemon, setPokemon] = useState(undefined)
+  const [bio, setBio] = useState()
+  const [speciesUrl, setSpeciesUrl] = useState(`https://pokeapi.co/api/v2/pokemon-species/${indexNum}/`)
 
   useEffect(() => {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${indexNum}/`)
@@ -20,6 +22,26 @@ const Pokemon = (props) => {
         setPokemon(false)
       })
   }, [indexNum])
+
+  useEffect(() => {
+    axios.get(speciesUrl)
+      .then(res => {
+        const { data } = res
+        let description = '';
+        console.log(data)
+        data.flavor_text_entries
+          .some(flavor => {
+            const { flavor_text, language } = flavor
+            const { name } = language
+            if (name === 'en') {
+              description = flavor_text
+              console.log(description)
+              setBio(description)
+              return description;
+            }
+          })
+      })
+  }, [speciesUrl])
 
   const loadPokemonJsx = () => {
     const { 
@@ -151,7 +173,10 @@ const Pokemon = (props) => {
               .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
               .join(' ')
             }`
-          }) }
+          }).join(', ') }
+          <br />
+          <br />
+          { bio }
           <br />
           <br />
           <img
