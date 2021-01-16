@@ -60,16 +60,16 @@ const Pokemon = (props) => {
           />
           <br />
           <br />
-          { `${height} decimeters` }
+          { `${height} Decimeters` }
           <br />
           <br />
-          { `${weight} hectograms` }
+          { `${weight} Hectograms` }
           <br />
           <br />
           { types.map((typeInfo) => {
             const { type } = typeInfo;
             const { name } = type;
-            return <div key={name}>{`${name}`}</div>
+            return <div key={name}>{`${name.toLowerCase().split(' ').map(letter => letter.charAt(0).toUpperCase() + letter.substring(1)).join(' ')}`}</div>
           }) }
           <br />
           <br />
