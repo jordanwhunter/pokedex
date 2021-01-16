@@ -47,7 +47,7 @@ const Pokemon = (props) => {
     return (
       <>
         <div>
-          { `${id}.` }
+          { `${id}. ` }
           { name
             .toLowerCase()
             .split(' ')
@@ -59,18 +59,38 @@ const Pokemon = (props) => {
             alt='Pokémon Sprite' 
           />
           <br />
+          {/* { `${height} Decimeters` } */}
+          { '~ ' + 
+            (Math.round((height * 0.328084 + 0.0001) * 100) / 100) + ' ft / ' + 
+            (Math.round((height * 10.006 + 0.0001) * 100) / 100) + ' cm' 
+          }
           <br />
-          { `${height} Decimeters` }
           <br />
-          <br />
-          { `${weight} Hectograms` }
+          {/* { `${weight} Hectograms` } */}
+          { '~ ' + 
+            (Math.round((weight * 0.220462 + 0.0001) * 100) / 100) + ' lbs / ' +
+            (Math.round((weight * 0.10001 + 0.0001) * 100) / 100) + ' kg' 
+          }
           <br />
           <br />
           { types.map((typeInfo) => {
             const { type } = typeInfo;
             const { name } = type;
-            return <div key={name}>{`${name.toLowerCase().split(' ').map(letter => letter.charAt(0).toUpperCase() + letter.substring(1)).join(' ')}`}</div>
-          }) }
+            return <div 
+              key={name}
+            >
+              {`${name
+                  .toLowerCase()
+                  .split(' ')
+                  .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
+                  .join(' ')
+                }`
+              }
+            </div>
+          })}
+          <br />
+          <br />
+          {  }
           <br />
           <br />
           <img
