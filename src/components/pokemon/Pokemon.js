@@ -9,7 +9,6 @@ const Pokemon = (props) => {
   
   const [pokemon, setPokemon] = useState(undefined)
   const [bio, setBio] = useState()
-  const [speciesUrl, setSpeciesUrl] = useState(`https://pokeapi.co/api/v2/pokemon-species/${indexNum}/`)
 
   useEffect(() => {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${indexNum}/`)
@@ -24,7 +23,7 @@ const Pokemon = (props) => {
   }, [indexNum])
 
   useEffect(() => {
-    axios.get(speciesUrl)
+    axios.get(`https://pokeapi.co/api/v2/pokemon-species/${indexNum}/`)
       .then(res => {
         const { data } = res
         let description = '';
@@ -41,7 +40,7 @@ const Pokemon = (props) => {
             }
           })
       })
-  }, [speciesUrl])
+  }, [indexNum])
 
   const loadPokemonJsx = () => {
     const { 
