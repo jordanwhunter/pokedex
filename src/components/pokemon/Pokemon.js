@@ -39,8 +39,6 @@ const Pokemon = (props) => {
       sprites
     } = pokemon
 
-    // const { stat } = stats
-
     const { front_default } = sprites
     const fullImageUrl = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`
 
@@ -65,7 +63,14 @@ const Pokemon = (props) => {
           { `${height} decimeters` }
           <br />
           <br />
-          { weight }
+          { `${weight} hectograms` }
+          <br />
+          <br />
+          { types.map((typeInfo) => {
+            const { type } = typeInfo;
+            const { name } = type;
+            return <div key={name}>{`${name}`}</div>
+          }) }
           <br />
           <br />
           <img
