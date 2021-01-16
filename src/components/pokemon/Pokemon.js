@@ -9,6 +9,10 @@ const Pokemon = (props) => {
   
   const [pokemon, setPokemon] = useState(undefined)
   const [bio, setBio] = useState()
+  const [genderRatioMale, setGenderRatioMale] = useState()
+  const [genderRatioFemale, setGenderRatioFemale] = useState()
+  const [catchRate, setCatchRate] = useState()
+
 
   useEffect(() => {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${indexNum}/`)
@@ -39,6 +43,12 @@ const Pokemon = (props) => {
               return description;
             }
           })
+
+        const femaleRate = data.gender_rate
+        setGenderRatioFemale(12.5 * femaleRate)
+        setGenderRatioMale(12.5 * (8 - femaleRate))
+
+        setCatchRate(data.capture_rate)
       })
   }, [indexNum])
 
@@ -176,6 +186,9 @@ const Pokemon = (props) => {
           <br />
           <br />
           { bio }
+          <br />
+          <br />
+          { `Catch Rate: ${catchRate}%` }
           <br />
           <br />
           <img
