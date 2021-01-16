@@ -31,8 +31,7 @@ const Pokemon = (props) => {
       weight, 
       eggGroup, 
       genderRatioMale, 
-      genderRatioFemale, 
-      evs, 
+      genderRatioFemale,  
       hatchSteps, 
       types, 
       stats, 
@@ -45,35 +44,33 @@ const Pokemon = (props) => {
     stats.map(stat => {
       switch (stat.stat.name) {
         case 'hp':
-          let hp = stat['base_stat'];
-          console.log(hp)
+          const hp = stat['base_stat'];
+          console.log(`HP: ${hp}`)
           break;
         case 'attack':
           let attack = stat['base_stat'];
-          console.log(attack)
+          console.log(`ATK: ${attack}`)
           break;
         case 'defense':
           let defense = stat['base_stat'];
-          console.log(defense)
+          console.log(`DEF: ${defense}`)
           break;
         case 'speed':
           let speed = stat['base_stat'];
-          console.log(speed)
+          console.log(`SPD: ${speed}`)
           break;
         case 'special-attack':
           let specialAttack = stat['base_stat'];
-          console.log(specialAttack)
+          console.log(`SP. ATK: ${specialAttack}`)
           break;
         case 'special-defense':
           let specialDefense = stat['base_stat'];
-          console.log(specialDefense)
+          console.log(`SP. DEF: ${specialDefense}`)
           break;
         default:
           break;
       }
     })
-
-    
 
     return (
       <>
@@ -138,7 +135,23 @@ const Pokemon = (props) => {
           }) }
           <br />
           <br />
-          {  }
+          { stats.filter(stat => {
+            if (stat.effort > 0) {
+              return true;
+            }
+            return false;
+          }) 
+          .map(statInfo => {
+            const { effort, stat } = statInfo
+            const { name } = stat
+
+            return `${effort} ${name
+              .toLowerCase()
+              .split(' ')
+              .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
+              .join(' ')
+            }`
+          }) }
           <br />
           <br />
           <img
