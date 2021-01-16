@@ -62,7 +62,7 @@ const Pokemon = (props) => {
           />
           <br />
           <br />
-          { `${height}ft` }
+          { `${height} decimeters` }
           <br />
           <br />
           { weight }
