@@ -22,9 +22,29 @@ const Pokemon = (props) => {
   }, [indexNum])
 
   const loadPokemonJsx = () => {
-    const { name, id, species, height, weight, types, sprites} = pokemon
+    const { 
+      name, 
+      id, 
+      abilities, 
+      species, 
+      height, 
+      weight, 
+      eggGroup, 
+      genderRatioMale, 
+      genderRatioFemale, 
+      evs, 
+      hatchSteps, 
+      types, 
+      stats, 
+      sprites
+    } = pokemon
+
+    // const { stat } = stats
+
     const { front_default } = sprites
     const fullImageUrl = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`
+
+    
 
     return (
       <>
@@ -40,6 +60,12 @@ const Pokemon = (props) => {
             src={ front_default }
             alt='Pokémon Sprite' 
           />
+          <br />
+          <br />
+          { `${height}ft` }
+          <br />
+          <br />
+          { weight }
           <br />
           <br />
           <img
