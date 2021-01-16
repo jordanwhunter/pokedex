@@ -42,6 +42,37 @@ const Pokemon = (props) => {
     const { front_default } = sprites
     const fullImageUrl = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`
 
+    stats.map(stat => {
+      switch (stat.stat.name) {
+        case 'hp':
+          let hp = stat['base_stat'];
+          console.log(hp)
+          break;
+        case 'attack':
+          let attack = stat['base_stat'];
+          console.log(attack)
+          break;
+        case 'defense':
+          let defense = stat['base_stat'];
+          console.log(defense)
+          break;
+        case 'speed':
+          let speed = stat['base_stat'];
+          console.log(speed)
+          break;
+        case 'special-attack':
+          let specialAttack = stat['base_stat'];
+          console.log(specialAttack)
+          break;
+        case 'special-defense':
+          let specialDefense = stat['base_stat'];
+          console.log(specialDefense)
+          break;
+        default:
+          break;
+      }
+    })
+
     
 
     return (
@@ -107,6 +138,9 @@ const Pokemon = (props) => {
           }) }
           <br />
           <br />
+          {  }
+          <br />
+          <br />
           <img
             src={ fullImageUrl }
             alt='Pokémon Large Pic' 
@@ -125,7 +159,7 @@ const Pokemon = (props) => {
         />
       }
       {pokemon !== undefined && pokemon && loadPokemonJsx(pokemon)}
-      {pokemon === false && <h1> Pokemon not found</h1>} 
+      {pokemon === false && <h1> Pokémon Not Found</h1>} 
     </>
   )
 }
