@@ -9,10 +9,12 @@ const Pokemon = (props) => {
   
   const [pokemon, setPokemon] = useState(undefined)
   const [bio, setBio] = useState()
+  const [healthPoints, setHealthPoints] = useState()
   const [genderRatioMale, setGenderRatioMale] = useState()
   const [genderRatioFemale, setGenderRatioFemale] = useState()
   const [catchRate, setCatchRate] = useState()
   const [eggGroups, setEggGroups] = useState()
+  const [hatchSteps, setHatchSteps] = useState()
 
 
   useEffect(() => {
@@ -52,6 +54,8 @@ const Pokemon = (props) => {
         setCatchRate(data.capture_rate)
 
         setEggGroups(data.egg_groups)
+
+        setHatchSteps(255 * (data.hatch_counter) + 1)
       })
   }, [indexNum])
 
@@ -66,7 +70,7 @@ const Pokemon = (props) => {
       // eggGroup, 
       // genderRatioMale, 
       // genderRatioFemale,  
-      hatchSteps, 
+      // hatchSteps, 
       types, 
       stats, 
       sprites
@@ -75,36 +79,36 @@ const Pokemon = (props) => {
     const { front_default } = sprites
     const fullImageUrl = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`
 
-    stats.map(stat => {
-      switch (stat.stat.name) {
-        case 'hp':
-          const hp = stat['base_stat'];
-          console.log(`HP: ${hp}`)
-          break;
-        case 'attack':
-          let attack = stat['base_stat'];
-          console.log(`ATK: ${attack}`)
-          break;
-        case 'defense':
-          let defense = stat['base_stat'];
-          console.log(`DEF: ${defense}`)
-          break;
-        case 'speed':
-          let speed = stat['base_stat'];
-          console.log(`SPEED: ${speed}`)
-          break;
-        case 'special-attack':
-          let specialAttack = stat['base_stat'];
-          console.log(`SP. ATK: ${specialAttack}`)
-          break;
-        case 'special-defense':
-          let specialDefense = stat['base_stat'];
-          console.log(`SP. DEF: ${specialDefense}`)
-          break;
-        default:
-          break;
-      }
-    })
+    // stats.map(stat => {
+    //   switch (stat.stat.name) {
+    //     case 'hp':
+    //       const hp = stat['base_stat'];
+    //       console.log(`HP: ${hp}`)
+    //       break;
+    //     case 'attack':
+    //       let attack = stat['base_stat'];
+    //       console.log(`ATK: ${attack}`)
+    //       break;
+    //     case 'defense':
+    //       let defense = stat['base_stat'];
+    //       console.log(`DEF: ${defense}`)
+    //       break;
+    //     case 'speed':
+    //       let speed = stat['base_stat'];
+    //       console.log(`SPEED: ${speed}`)
+    //       break;
+    //     case 'special-attack':
+    //       let specialAttack = stat['base_stat'];
+    //       console.log(`SP. ATK: ${specialAttack}`)
+    //       break;
+    //     case 'special-defense':
+    //       let specialDefense = stat['base_stat'];
+    //       console.log(`SP. DEF: ${specialDefense}`)
+    //       break;
+    //     default:
+    //       break;
+    //   }
+    // })
 
     return (
       <>
@@ -197,6 +201,21 @@ const Pokemon = (props) => {
               .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
               .join(' ')
             }`
+          }).join(', ') }
+          <br />
+          <br />
+          { `Hatch Steps: ${hatchSteps}`}
+          <br />
+          <br />
+          { stats.map(statInfo => {
+            const { base_stat, stat } = statInfo
+            const { name } = stat
+            return `${name
+              .toLowerCase()
+              .split(' ')
+              .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
+              .join(' ')
+            }: ${base_stat}`
           }).join(', ') }
           <br />
           <br />
