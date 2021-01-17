@@ -161,7 +161,7 @@ const Pokemon = (props) => {
               .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
               .join('-')
             }`
-          }) }
+          }).join(', ') }
           <br />
           <br />
           { stats.filter(stat => {
@@ -195,9 +195,9 @@ const Pokemon = (props) => {
               .toLowerCase()
               .split(' ')
               .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
-              .join(', ')
+              .join(' ')
             }`
-          }) }
+          }).join(', ') }
           <br />
           <br />
           <img
