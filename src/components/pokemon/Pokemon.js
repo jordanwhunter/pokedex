@@ -12,6 +12,7 @@ const Pokemon = (props) => {
   const [genderRatioMale, setGenderRatioMale] = useState()
   const [genderRatioFemale, setGenderRatioFemale] = useState()
   const [catchRate, setCatchRate] = useState()
+  const [eggGroups, setEggGroups] = useState()
 
 
   useEffect(() => {
@@ -49,6 +50,8 @@ const Pokemon = (props) => {
         setGenderRatioMale(12.5 * (8 - femaleRate))
 
         setCatchRate(data.capture_rate)
+
+        setEggGroups(data.egg_groups)
       })
   }, [indexNum])
 
@@ -60,9 +63,9 @@ const Pokemon = (props) => {
       species, 
       height, 
       weight, 
-      eggGroup, 
-      genderRatioMale, 
-      genderRatioFemale,  
+      // eggGroup, 
+      // genderRatioMale, 
+      // genderRatioFemale,  
       hatchSteps, 
       types, 
       stats, 
@@ -88,7 +91,7 @@ const Pokemon = (props) => {
           break;
         case 'speed':
           let speed = stat['base_stat'];
-          console.log(`SPD: ${speed}`)
+          console.log(`SPEED: ${speed}`)
           break;
         case 'special-attack':
           let specialAttack = stat['base_stat'];
@@ -132,7 +135,7 @@ const Pokemon = (props) => {
           }
           <br />
           <br />
-          { types.map((typeInfo) => {
+          { types.map(typeInfo => {
             const { type } = typeInfo;
             const { name } = type;
             return <div 
@@ -149,20 +152,15 @@ const Pokemon = (props) => {
           }) }
           <br />
           <br />
-          { abilities.map((abilityInfo) => {
+          { abilities.map(abilityInfo => {
             const { ability } = abilityInfo;
             const { name } = ability;
-            return <div
-              key={name}
-            >
-              {`${name
-                  .toLowerCase()
-                  .split('-')
-                  .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
-                  .join('-')
-                }`
-              }
-            </div>
+            return `${name
+              .toLowerCase()
+              .split('-')
+              .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
+              .join('-')
+            }`
           }) }
           <br />
           <br />
@@ -189,6 +187,17 @@ const Pokemon = (props) => {
           <br />
           <br />
           { `Catch Rate: ${catchRate}%` }
+          <br />
+          <br />
+          { eggGroups.map(group => {
+            const { name } = group
+            return `${name
+              .toLowerCase()
+              .split(' ')
+              .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
+              .join(', ')
+            }`
+          }) }
           <br />
           <br />
           <img
