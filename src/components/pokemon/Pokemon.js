@@ -30,7 +30,6 @@ const Pokemon = (props) => {
   
   const [pokemon, setPokemon] = useState(undefined)
   const [bio, setBio] = useState()
-  const [healthPoints, setHealthPoints] = useState()
   const [genderRatioMale, setGenderRatioMale] = useState()
   const [genderRatioFemale, setGenderRatioFemale] = useState()
   const [catchRate, setCatchRate] = useState()
@@ -311,6 +310,17 @@ const Pokemon = (props) => {
                     </div>
                   </div>
                 </div>
+                <div className='row mt-2'>
+                  <div className='col'>
+                    <p className='p-2'>{ bio }</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr />
+            <div className='card-body'>
+              <div className='card-title text-center'>
+                Profile
               </div>
             </div>
           </div>
@@ -386,7 +396,7 @@ export default Pokemon
 // }).join(', ') }
 // <br />
 // <br />
-// { bio }
+
 // <br />
 // <br />
 // { `Catch Rate: ${catchRate}%` }
