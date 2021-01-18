@@ -331,7 +331,7 @@ const Pokemon = (props) => {
                       <h6 className='float-left'>
                         {  
                           (Math.round((height * 0.328084 + 0.0001) * 100) / 100) + ' ft / ' + 
-                          (Math.round((height * 10.006 + 0.0001) * 100) / 100) + ' cm' 
+                          (Math.round((height * 10 + 0.0001) * 100) / 100) + ' cm' 
                         }
                       </h6>
                     </div>
@@ -344,7 +344,7 @@ const Pokemon = (props) => {
                       <h6 className='float-left'>
                         {  
                           (Math.round((weight * 0.220462 + 0.0001) * 100) / 100) + ' lbs / ' +
-                          (Math.round((weight * 0.10001 + 0.0001) * 100) / 100) + ' kg' 
+                          (Math.round((weight * 0.1 + 0.0001) * 100) / 100) + ' kg' 
                         }
                       </h6>
                     </div>
@@ -392,6 +392,38 @@ const Pokemon = (props) => {
                           <small>{genderRatioMale}</small>        
                         </div>
                       </div>
+                    </div>
+                  </div>
+                </div>
+                <div className='col-md-6'>
+                  <div className='row'>
+                    <div className='col-md-6'>
+                      <h6 className='float-right'>Egg Groups:</h6>
+                    </div>
+                    <div className='col-md-6'>
+                      <h6 className='float-left'>
+                        { 
+                          eggGroups.map(group => {
+                            const { name } = group
+                            return `${name
+                              .toLowerCase()
+                              .split(' ')
+                              .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
+                              .join(' ')
+                            }`
+                          }).join(', ') 
+                        }
+                      </h6>
+                    </div>
+                  </div>
+                  <div className='row'>
+                    <div className='col-md-6'>
+                      <h6 className='float-right'>Hatch Steps:</h6>
+                    </div>
+                    <div className='col-md-6'>
+                      <h6 className='float-left'>
+                        {hatchSteps}
+                      </h6>
                     </div>
                   </div>
                 </div>
@@ -470,18 +502,10 @@ export default Pokemon
 
 // <br />
 // <br />
-// { eggGroups.map(group => {
-//   const { name } = group
-//   return `${name
-//     .toLowerCase()
-//     .split(' ')
-//     .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
-//     .join(' ')
-//   }`
-// }).join(', ') }
+
 // <br />
 // <br />
-// { `Hatch Steps: ${hatchSteps}`}
+
 // <br />
 // <br />
 
