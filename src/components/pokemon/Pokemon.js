@@ -325,11 +325,11 @@ const Pokemon = (props) => {
                 <div className='col-md-6'>
                   <div className='row'>
                     <div className='col-md-6'>
-                      <h6 className='float-right'>Height:</h6>
+                      <h6 className='float-right'>Approx. Height:</h6>
                     </div>
                     <div className='col-md-6'>
                       <h6 className='float-left'>
-                        { '~ ' + 
+                        {  
                           (Math.round((height * 0.328084 + 0.0001) * 100) / 100) + ' ft / ' + 
                           (Math.round((height * 10.006 + 0.0001) * 100) / 100) + ' cm' 
                         }
@@ -338,18 +338,62 @@ const Pokemon = (props) => {
                   </div>
                   <div className='row'>
                     <div className='col-md-6'>
-                      <h6 className='float-right'>Weight:</h6>
+                      <h6 className='float-right'>Approx. Weight:</h6>
                     </div>
                     <div className='col-md-6'>
                       <h6 className='float-left'>
-                        { '~ ' + 
+                        {  
                           (Math.round((weight * 0.220462 + 0.0001) * 100) / 100) + ' lbs / ' +
                           (Math.round((weight * 0.10001 + 0.0001) * 100) / 100) + ' kg' 
                         }
                       </h6>
                     </div>
                   </div>
-                  
+                  <div className='row'>
+                    <div className='col-md-6'>
+                      <h6 className='float-right'>Catch Rate:</h6>
+                    </div>
+                    <div className='col-md-6'>
+                      <h6 className='float-left'>
+                        { `${catchRate}%` }
+                      </h6>
+                    </div>
+                  </div>
+                  <div className='row'>
+                    <div className='col-md-6'>
+                      <h6 className='float-right'>Gender Ratio:</h6>
+                    </div>
+                    <div className='col-md-6'>
+                      <div className='progress'>
+                        <div 
+                          className='progress-bar'
+                          role='progressbar'
+                          style={{
+                            width: `${genderRatioFemale}%`,
+                            backgroundColor: '#C2185B'
+                          }}
+                          aria-valuenow='15'
+                          aria-valuemin='0'
+                          aria-valuemax='100'
+                        >
+                          <small>{genderRatioFemale}</small>        
+                        </div>
+                        <div 
+                          className='progress-bar'
+                          role='progressbar'
+                          style={{
+                            width: `${genderRatioMale}%`,
+                            backgroundColor: '#1976D2'
+                          }}
+                          aria-valuenow='30'
+                          aria-valuemin='0'
+                          aria-valuemax='100'
+                        >
+                          <small>{genderRatioMale}</small>        
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -423,7 +467,7 @@ export default Pokemon
 
 // <br />
 // <br />
-// { `Catch Rate: ${catchRate}%` }
+
 // <br />
 // <br />
 // { eggGroups.map(group => {
