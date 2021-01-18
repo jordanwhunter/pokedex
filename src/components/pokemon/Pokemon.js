@@ -373,7 +373,7 @@ const Pokemon = (props) => {
                           aria-valuemin='0'
                           aria-valuemax='100'
                         >
-                          <small>{genderRatioFemale}</small>        
+                          <small>{`${genderRatioFemale}%`}</small>        
                         </div>
                         <div 
                           className='progress-bar'
@@ -386,7 +386,7 @@ const Pokemon = (props) => {
                           aria-valuemin='0'
                           aria-valuemax='100'
                         >
-                          <small>{genderRatioMale}</small>        
+                          <small>{`${genderRatioMale}%`}</small>        
                         </div>
                       </div>
                     </div>
