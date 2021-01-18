@@ -40,7 +40,7 @@ const Pokemon = (props) => {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${indexNum}/`)
       .then (res => {
         const { data } = res
-        console.log(data)
+        // console.log(data)
         setPokemon(data)
       })
       .catch(err => {
@@ -53,7 +53,7 @@ const Pokemon = (props) => {
       .then(res => {
         const { data } = res
         let description = '';
-        console.log(data)
+        // console.log(data)
         data.flavor_text_entries
           .some(flavor => {
             const { flavor_text, language } = flavor
@@ -63,8 +63,8 @@ const Pokemon = (props) => {
               // console.log(description)
               setBio(description)
             }
-            const affirm = console.log('Description set as state for bio')
-            return affirm
+            const affirm1 = console.log('Description set as state for bio')
+            return affirm1
           })
 
         const femaleRate = data.gender_rate
@@ -83,14 +83,9 @@ const Pokemon = (props) => {
     const { 
       name, 
       id, 
-      abilities, 
-      species, 
+      abilities,  
       height, 
-      weight, 
-      // eggGroup, 
-      // genderRatioMale, 
-      // genderRatioFemale,  
-      // hatchSteps, 
+      weight,  
       types, 
       stats, 
       sprites
@@ -112,31 +107,33 @@ const Pokemon = (props) => {
       switch (stat.stat.name) {
         case 'hp':
           hp = stat['base_stat'];
-          console.log(`HP: ${hp}`)
+          // console.log(`HP: ${hp}`)
           break;
         case 'attack':
           attack = stat['base_stat'];
-          console.log(`ATK: ${attack}`)
+          // console.log(`ATK: ${attack}`)
           break;
         case 'defense':
           defense = stat['base_stat'];
-          console.log(`DEF: ${defense}`)
+          // console.log(`DEF: ${defense}`)
           break;
         case 'speed':
           speed = stat['base_stat'];
-          console.log(`SPEED: ${speed}`)
+          // console.log(`SPEED: ${speed}`)
           break;
         case 'special-attack':
           specialAttack = stat['base_stat'];
-          console.log(`SP. ATK: ${specialAttack}`)
+          // console.log(`SP. ATK: ${specialAttack}`)
           break;
         case 'special-defense':
           specialDefense = stat['base_stat'];
-          console.log(`SP. DEF: ${specialDefense}`)
+          // console.log(`SP. DEF: ${specialDefense}`)
           break;
         default:
           break;
       }
+      const affirm2 = console.log('Variables from switch case are set')
+      return affirm2
     })
 
     return (
@@ -426,6 +423,55 @@ const Pokemon = (props) => {
                       </h6>
                     </div>
                   </div>
+                  <div className='row'>
+                    <div className='col-md-6'>
+                      <h6 className='float-right'>Effort Values:</h6>
+                    </div>
+                    <div className='col-md-6'>
+                      <h6 className='float-left'>
+                        {
+                          stats.filter(stat => {
+                            if (stat.effort > 0) {
+                              return true;
+                            }
+                            return false;
+                          }) 
+                          .map(statInfo => {
+                            const { effort, stat } = statInfo
+                            const { name } = stat
+
+                            return `${effort} ${name
+                              .toLowerCase()
+                              .split(' ')
+                              .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
+                              .join('')
+                            }`
+                          }).join(', ')
+                        }
+                      </h6>
+                    </div>
+                  </div>
+                  <div className='row'>
+                    <div className='col-md-6'>
+                      <h6 className='float-right'>Abilities:</h6>
+                    </div>
+                    <div className='col-md-6'>
+                      <h6 className='float-left'>
+                        {
+                          abilities.map(abilityInfo => {
+                            const { ability } = abilityInfo;
+                            const { name } = ability;
+                            return `${name
+                              .toLowerCase()
+                              .split('-')
+                              .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
+                              .join('-')
+                            }`
+                          }).join(', ')
+                        }
+                      </h6>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -465,35 +511,10 @@ export default Pokemon
 
 // <br />
 // <br />
-// { abilities.map(abilityInfo => {
-//   const { ability } = abilityInfo;
-//   const { name } = ability;
-//   return `${name
-//     .toLowerCase()
-//     .split('-')
-//     .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
-//     .join('-')
-//   }`
-// }).join(', ') }
-// <br />
-// <br />
-// { stats.filter(stat => {
-//   if (stat.effort > 0) {
-//     return true;
-//   }
-//   return false;
-// }) 
-// .map(statInfo => {
-//   const { effort, stat } = statInfo
-//   const { name } = stat
 
-//   return `${effort} ${name
-//     .toLowerCase()
-//     .split(' ')
-//     .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
-//     .join(' ')
-//   }`
-// }).join(', ') }
+// <br />
+// <br />
+
 // <br />
 // <br />
 
