@@ -146,7 +146,12 @@ const Pokemon = (props) => {
                   <h5>{`Pokémon Index #${indexNum}`}</h5>
                 </div>
                 <div className='col-7'>
-                  <div className='float-right'>
+                  <div 
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'row-reverse'
+                    }}
+                  >
                     { types.map(typeInfo => {
                       const { type } = typeInfo;
                       const { name } = type;
@@ -320,12 +325,16 @@ const Pokemon = (props) => {
               <h5 className='card-title text-center'>Profile</h5>
               <div className='row'>
                 <div className='col-md-6'>
-                  <div className='row'>
+                  <div className='row flex-container'>
                     <div className='col-md-6'>
-                      <h6 className='float-right'>Approx. Height:</h6>
+                      <h6 style={{display: 'flex'}}>Approx. Height:</h6>
                     </div>
                     <div className='col-md-6'>
-                      <h6 className='float-left'>
+                      <h6 style={{
+                        display: 'flex',
+                        flexDirection: 'row-reverse'
+                      }}
+                      >
                         {  
                           (Math.round((height * 0.328084 + 0.0001) * 100) / 100) + ' ft / ' + 
                           (Math.round((height * 10 + 0.0001) * 100) / 100) + ' cm' 
@@ -333,12 +342,16 @@ const Pokemon = (props) => {
                       </h6>
                     </div>
                   </div>
-                  <div className='row'>
+                  <div className='row flex-container'>
                     <div className='col-md-6'>
-                      <h6 className='float-right'>Approx. Weight:</h6>
+                      <h6 style={{display: 'flex'}}>Approx. Weight:</h6>
                     </div>
                     <div className='col-md-6'>
-                      <h6 className='float-left'>
+                      <h6 style={{
+                        display: 'flex',
+                        flexDirection: 'row-reverse'
+                      }}
+                      >
                         {  
                           (Math.round((weight * 0.220462 + 0.0001) * 100) / 100) + ' lbs / ' +
                           (Math.round((weight * 0.1 + 0.0001) * 100) / 100) + ' kg' 
@@ -346,19 +359,23 @@ const Pokemon = (props) => {
                       </h6>
                     </div>
                   </div>
-                  <div className='row'>
+                  <div className='row flex-container'>
                     <div className='col-md-6'>
-                      <h6 className='float-right'>Catch Rate:</h6>
+                      <h6 style={{display: 'flex'}}>Catch Rate:</h6>
                     </div>
                     <div className='col-md-6'>
-                      <h6 className='float-left'>
+                      <h6 style={{
+                        display: 'flex',
+                        flexDirection: 'row-reverse'
+                      }}
+                      >
                         { `${catchRate}%` }
                       </h6>
                     </div>
                   </div>
-                  <div className='row'>
+                  <div className='row flex-container'>
                     <div className='col-md-6'>
-                      <h6 className='float-right'>Gender Ratio:</h6>
+                      <h6 style={{display: 'flex'}}>Gender Ratio:</h6>
                     </div>
                     <div className='col-md-6'>
                       <div className='progress'>
@@ -367,7 +384,7 @@ const Pokemon = (props) => {
                           role='progressbar'
                           style={{
                             width: `${genderRatioFemale}%`,
-                            backgroundColor: '#C2185B'
+                            backgroundColor: '#C2185B',
                           }}
                           aria-valuenow='15'
                           aria-valuemin='0'
@@ -393,12 +410,16 @@ const Pokemon = (props) => {
                   </div>
                 </div>
                 <div className='col-md-6'>
-                  <div className='row'>
+                  <div className='row flex-container'>
                     <div className='col-md-6'>
-                      <h6 className='float-right'>Egg Groups:</h6>
+                      <h6 style={{display: 'flex'}}>Egg Groups:</h6>
                     </div>
                     <div className='col-md-6'>
-                      <h6 className='float-left'>
+                      <h6 style={{
+                        display: 'flex',
+                        flexDirection: 'row-reverse'
+                      }}
+                      >
                         { 
                           eggGroups.map(group => {
                             const { name } = group
@@ -413,22 +434,30 @@ const Pokemon = (props) => {
                       </h6>
                     </div>
                   </div>
-                  <div className='row'>
+                  <div className='row flex-container'>
                     <div className='col-md-6'>
-                      <h6 className='float-right'>Hatch Steps:</h6>
+                      <h6 style={{display: 'flex'}}>Hatch Steps:</h6>
                     </div>
                     <div className='col-md-6'>
-                      <h6 className='float-left'>
+                      <h6 style={{
+                        display: 'flex',
+                        flexDirection: 'row-reverse'
+                      }}
+                      >
                         {hatchSteps}
                       </h6>
                     </div>
                   </div>
-                  <div className='row'>
+                  <div className='row flex-container'>
                     <div className='col-md-6'>
-                      <h6 className='float-right'>Effort Values:</h6>
+                      <h6 style={{display: 'flex'}}>Effort Values:</h6>
                     </div>
                     <div className='col-md-6'>
-                      <h6 className='float-left'>
+                      <h6 style={{
+                        display: 'flex',
+                        flexDirection: 'row-reverse'
+                      }}
+                      >
                         {
                           stats.filter(stat => {
                             if (stat.effort > 0) {
@@ -451,12 +480,16 @@ const Pokemon = (props) => {
                       </h6>
                     </div>
                   </div>
-                  <div className='row'>
+                  <div className='row flex-container'>
                     <div className='col-md-6'>
-                      <h6 className='float-right'>Abilities:</h6>
+                      <h6 style={{display: 'flex'}}>Abilities:</h6>
                     </div>
                     <div className='col-md-6'>
-                      <h6 className='float-left'>
+                      <h6 style={{
+                        display: 'flex',
+                        flexDirection: 'row-reverse'
+                      }}
+                      >
                         {
                           abilities.map(abilityInfo => {
                             const { ability } = abilityInfo;
