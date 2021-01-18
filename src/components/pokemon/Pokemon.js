@@ -60,10 +60,11 @@ const Pokemon = (props) => {
             const { name } = language
             if (name === 'en') {
               description = flavor_text
-              console.log(description)
+              // console.log(description)
               setBio(description)
-              return description;
             }
+            const affirm = console.log('Description set as state for bio')
+            return affirm
           })
 
         const femaleRate = data.gender_rate
@@ -319,8 +320,37 @@ const Pokemon = (props) => {
             </div>
             <hr />
             <div className='card-body'>
-              <div className='card-title text-center'>
-                Profile
+              <h5 className='card-title text-center'>Profile</h5>
+              <div className='row'>
+                <div className='col-md-6'>
+                  <div className='row'>
+                    <div className='col-md-6'>
+                      <h6 className='float-right'>Height:</h6>
+                    </div>
+                    <div className='col-md-6'>
+                      <h6 className='float-left'>
+                        { '~ ' + 
+                          (Math.round((height * 0.328084 + 0.0001) * 100) / 100) + ' ft / ' + 
+                          (Math.round((height * 10.006 + 0.0001) * 100) / 100) + ' cm' 
+                        }
+                      </h6>
+                    </div>
+                  </div>
+                  <div className='row'>
+                    <div className='col-md-6'>
+                      <h6 className='float-right'>Weight:</h6>
+                    </div>
+                    <div className='col-md-6'>
+                      <h6 className='float-left'>
+                        { '~ ' + 
+                          (Math.round((weight * 0.220462 + 0.0001) * 100) / 100) + ' lbs / ' +
+                          (Math.round((weight * 0.10001 + 0.0001) * 100) / 100) + ' kg' 
+                        }
+                      </h6>
+                    </div>
+                  </div>
+                  
+                </div>
               </div>
             </div>
           </div>
@@ -349,17 +379,11 @@ export default Pokemon
 
 // <br />
 // {/* { `${height} Decimeters` } */}
-// { '~ ' + 
-//   (Math.round((height * 0.328084 + 0.0001) * 100) / 100) + ' ft / ' + 
-//   (Math.round((height * 10.006 + 0.0001) * 100) / 100) + ' cm' 
-// }
+
 // <br />
 // <br />
 // {/* { `${weight} Hectograms` } */}
-// { '~ ' + 
-//   (Math.round((weight * 0.220462 + 0.0001) * 100) / 100) + ' lbs / ' +
-//   (Math.round((weight * 0.10001 + 0.0001) * 100) / 100) + ' kg' 
-// }
+
 // <br />
 // <br />
 
