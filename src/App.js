@@ -19,7 +19,10 @@ function App() {
         <NavBar />
         <div className='container'>
           <Switch>
-            <Route exact path='/' component={Dashboard} />
+            <Route 
+              exact path='/' 
+              component={Dashboard} 
+            />
             <Route 
               exact path='/pokemon/:indexNum' 
               render={(props) => <Pokemon {...props} />} 
