@@ -1,4 +1,5 @@
 import React from 'react';
+import pokedex from '../../pokedex.png';
 
 const NavBar = () => {
 
@@ -9,7 +10,13 @@ const NavBar = () => {
           href='/' 
           className='navbar-text navbar-brand col-sm-3 col-md-2 mr-0 align-items-center'
         >
-          Pokédex
+          <img
+            src={pokedex}
+            alt='Pokédex Logo'
+            style={{
+              height: '40px',
+            }}
+          />
         </a>
       </nav>
     </div>
