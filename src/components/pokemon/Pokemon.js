@@ -138,7 +138,12 @@ const Pokemon = (props) => {
 
     return (
       <>
-        <div className='col'>
+        <div 
+          className='col'
+          style={{
+            marginTop: '25px'
+          }}
+        >
           <div className='card'>
             <div className='card-header'>
               <div className='row'>
