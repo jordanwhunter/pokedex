@@ -29,12 +29,13 @@ const Pokemon = (props) => {
   const { indexNum } = params
   
   const [pokemon, setPokemon] = useState(undefined)
-  const [bio, setBio] = useState()
-  const [genderRatioMale, setGenderRatioMale] = useState()
-  const [genderRatioFemale, setGenderRatioFemale] = useState()
-  const [catchRate, setCatchRate] = useState()
-  const [eggGroups, setEggGroups] = useState()
-  const [hatchSteps, setHatchSteps] = useState()
+  const [bio, setBio] = useState('')
+  const [genderRatioMale, setGenderRatioMale] = useState(0)
+  const [genderRatioFemale, setGenderRatioFemale] = useState(0)
+  const [catchRate, setCatchRate] = useState(0)
+  const [growthRate, setGrowthRate] = useState('')
+  // const [eggGroups, setEggGroups] = useState('')
+  const [hatchSteps, setHatchSteps] = useState(0)
 
   useEffect(() => {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${indexNum}/`)
@@ -73,7 +74,9 @@ const Pokemon = (props) => {
 
         setCatchRate(data.capture_rate)
 
-        setEggGroups(data.egg_groups)
+        // setEggGroups(data.egg_groups)
+
+        setGrowthRate(data.growth_rate.name)
 
         setHatchSteps(255 * (data.hatch_counter) + 1)
       })
@@ -412,7 +415,7 @@ const Pokemon = (props) => {
                 <div className='col-md-6'>
                   <div className='row flex-container'>
                     <div className='col-md-6'>
-                      <h6 style={{display: 'flex'}}>Egg Groups:</h6>
+                      <h6 style={{display: 'flex'}}>Growth Rate:</h6>
                     </div>
                     <div className='col-md-6'>
                       <h6 style={{
@@ -420,16 +423,11 @@ const Pokemon = (props) => {
                         flexDirection: 'row-reverse'
                       }}
                       >
-                        { 
-                          eggGroups.map(group => {
-                            const { name } = group
-                            return `${name
-                              .toLowerCase()
-                              .split(' ')
-                              .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
-                              .join(' ')
-                            }`
-                          }).join(', ') 
+                        {growthRate
+                          .toLowerCase()
+                          .split('-')
+                          .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
+                          .join('-')
                         }
                       </h6>
                     </div>
@@ -530,38 +528,14 @@ const Pokemon = (props) => {
 
 export default Pokemon
 
-// { `${id}. ` }
-
-// <br />
-// {/* { `${height} Decimeters` } */}
-
-// <br />
-// <br />
-// {/* { `${weight} Hectograms` } */}
-
-// <br />
-// <br />
-
-// <br />
-// <br />
-
-// <br />
-// <br />
-
-// <br />
-// <br />
-
-// <br />
-// <br />
-
-// <br />
-// <br />
-
-// <br />
-// <br />
-
-// <br />
-// <br />
-
-// <br />
-// <br />
+// { 
+//   eggGroups.map(group => {
+//     const { name } = group
+//     return `${name
+//       .toLowerCase()
+//       .split(' ')
+//       .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
+//       .join(' ')
+//     }`
+//   }).join(', ') 
+// }
