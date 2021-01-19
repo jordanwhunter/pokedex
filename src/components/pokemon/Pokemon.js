@@ -34,7 +34,6 @@ const Pokemon = (props) => {
   const [genderRatioFemale, setGenderRatioFemale] = useState(0)
   const [catchRate, setCatchRate] = useState(0)
   const [growthRate, setGrowthRate] = useState('')
-  // const [eggGroups, setEggGroups] = useState('')
   const [hatchSteps, setHatchSteps] = useState(0)
 
   useEffect(() => {
@@ -73,8 +72,6 @@ const Pokemon = (props) => {
         setGenderRatioMale(12.5 * (8 - femaleRate))
 
         setCatchRate(data.capture_rate)
-
-        // setEggGroups(data.egg_groups)
 
         setGrowthRate(data.growth_rate.name)
 
@@ -527,15 +524,3 @@ const Pokemon = (props) => {
 }
 
 export default Pokemon
-
-// { 
-//   eggGroups.map(group => {
-//     const { name } = group
-//     return `${name
-//       .toLowerCase()
-//       .split(' ')
-//       .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
-//       .join(' ')
-//     }`
-//   }).join(', ') 
-// }

@@ -39,24 +39,13 @@ const PokemonCard = ({ pokemon, url }) => {
   const [tooManyRequests, setTooManyRequests] = useState(false)
   const [indexNum] = useState(url.split('/')[url.split('/').length - 2])
 
-
-  // const fetchSprites = async () => {
-  //   await axios.get('https://pokeapi.co/api/v2/pokemon/' + pokemon)
-  //     .then (res => {
-  //       setSprite(res.data.sprites.front_default)
-  //     })
-  // }
-
   useEffect(() => {
-    // fetchSprites()
     axios.get('https://pokeapi.co/api/v2/pokemon/' + pokemon)
       .then (res => {
         setSprite(res.data.sprites.front_default)
       })
   }, [pokemon])
 
-  // const name = this.props.name;
-  // console.log(pokemon)
   return (
     <div className='col-md-3 col-sm-6 mb-5'>
       <StyledLink to={`pokemon/${indexNum}`}>
@@ -86,9 +75,6 @@ const PokemonCard = ({ pokemon, url }) => {
                   loadImage ? null : { display: 'block'}
                 }
                 />
-                {/* {tooManyRequests ? (<h6 className='mx-auto'>
-                  <span className='badge badge-danger mt-2'>Too Many Requests</span>
-                </h6>) : null} */}
                 <h6>
                   {pokemon
                     .toLowerCase()
@@ -97,7 +83,6 @@ const PokemonCard = ({ pokemon, url }) => {
                     .join(' ')
                   }
                 </h6>
-                {/* <br /> */}
               </center>
           </div>
         </Card>
