@@ -479,9 +479,9 @@ const Pokemon = (props) => {
 
                             return `${effort} ${name
                               .toLowerCase()
-                              .split(' ')
+                              .split('-')
                               .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
-                              .join('')
+                              .join(' ')
                             }`
                           }).join(', ')
                         }
@@ -506,7 +506,7 @@ const Pokemon = (props) => {
                               .toLowerCase()
                               .split('-')
                               .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
-                              .join('-')
+                              .join(' ')
                             }`
                           }).join(', ')
                         }
