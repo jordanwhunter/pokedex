@@ -437,7 +437,7 @@ const Pokemon = (props) => {
                           .toLowerCase()
                           .split('-')
                           .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
-                          .join(' / ')
+                          .join(' ')
                         }
                       </h6>
                     </div>
