@@ -148,7 +148,7 @@ const Pokemon = (props) => {
             <div className='card-header'>
               <div className='row'>
                 <div className='col-5'>
-                  <h5>{`Pokémon Index #${indexNum}`}</h5>
+                  <h5>{`Pokémon #${indexNum}`}</h5>
                 </div>
                 <div className='col-7'>
                   <div 
