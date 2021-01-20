@@ -78,9 +78,9 @@ const PokemonCard = ({ pokemon, url }) => {
                 <h6>
                   {pokemon
                     .toLowerCase()
-                    .split(' ')
+                    .split('-')
                     .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
-                    .join(' ')
+                    .join('-')
                   }
                 </h6>
               </center>
