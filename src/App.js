@@ -24,8 +24,8 @@ function App() {
               component={Dashboard} 
             />
             <Route 
-              exact path='/pokemon/:indexNum' 
-              render={(props) => <Pokemon {...props} />} 
+              exact path='/pokemon/:indexNum'
+              render={(props) => <Pokemon {...props} />}
             />
           </Switch>
         </div>
