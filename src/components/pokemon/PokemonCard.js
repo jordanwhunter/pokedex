@@ -50,7 +50,15 @@ const PokemonCard = ({ pokemon, url }) => {
     <div className='col-md-3 col-sm-6 mb-5'>
       <StyledLink to={`pokemon/${indexNum}`}>
         <Card className='card'>
-          <p className='card-header'>{indexNum}</p>
+          <p className='card-header'>
+            <img 
+              src='https://icon-library.com/images/small-pokeball-icon/small-pokeball-icon-4.jpg' 
+              alt='Pokéball Icon'
+              width='40px'
+              height='31.75px'
+            />
+            {indexNum}
+          </p>
           {loadImage ? (
             <img
               className='card-img-top rounded mx-auto d-block mt-2'
