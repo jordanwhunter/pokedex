@@ -148,7 +148,15 @@ const Pokemon = (props) => {
             <div className='card-header'>
               <div className='row'>
                 <div className='col-5'>
-                  <h5>{`Pokémon #${indexNum}`}</h5>
+                  <h5>
+                    <img 
+                      src='https://icon-library.com/images/small-pokeball-icon/small-pokeball-icon-4.jpg' 
+                      alt='Pokéball Icon'
+                      width='45.714px'
+                      height='36.285px'
+                    />
+                    {indexNum}
+                  </h5>
                 </div>
                 <div className='col-7'>
                   <div 
@@ -194,7 +202,7 @@ const Pokemon = (props) => {
                   <h5 className='mx-auto'>
                     { name
                       .toLowerCase()
-                      .split(' ')
+                      .split('-')
                       .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
                       .join(' ')
                     }
