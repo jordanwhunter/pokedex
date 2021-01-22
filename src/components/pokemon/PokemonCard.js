@@ -37,6 +37,7 @@ const PokemonCard = ({ pokemon, url }) => {
   const [sprite, setSprite] = useState('')
   const [loadImage, setLoadImage] = useState(true)
   const [tooManyRequests, setTooManyRequests] = useState(false)
+  const [didMount, setDidMount] = useState(false)
   const [indexNum] = useState(url.split('/')[url.split('/').length - 2])
 
   useEffect(() => {
@@ -44,7 +45,13 @@ const PokemonCard = ({ pokemon, url }) => {
       .then (res => {
         setSprite(res.data.sprites.front_default)
       })
+      setDidMount(true);
+      return () => setDidMount(false)
   }, [pokemon])
+
+  if (!didMount) {
+    return null;
+  }
 
   return (
     <div className='col-md-3 col-sm-6 mb-5'>
