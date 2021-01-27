@@ -55,7 +55,10 @@ const PokemonCard = ({ pokemon, url }) => {
 
   return (
     <div className='col-md-3 col-sm-6 mb-5'>
-      <StyledLink to={`pokemon/${indexNum}`}>
+      <StyledLink 
+        to={`pokemon/${indexNum}`}
+        target='_blank'
+      >
         <Card className='card'>
           <p className='card-header'>
             <img 
@@ -78,27 +81,27 @@ const PokemonCard = ({ pokemon, url }) => {
             />
           ) : null}
           <div className='card-body'>
-              <center>
-                <Sprite
-                className='card-img-top rounded mx-auto mt-2' 
-                src={sprite} 
-                alt='Pokémon Sprite'
-                onLoad={() => setLoadImage(false)}
-                onError={() => setTooManyRequests(true)}
-                style={
-                  tooManyRequests ? { display: 'block'} :
-                  loadImage ? null : { display: 'block'}
+            <center>
+              <Sprite
+              className='card-img-top rounded mx-auto mt-2' 
+              src={sprite} 
+              alt='Pokémon Sprite'
+              onLoad={() => setLoadImage(false)}
+              onError={() => setTooManyRequests(true)}
+              style={
+                tooManyRequests ? { display: 'block'} :
+                loadImage ? null : { display: 'block'}
+              }
+              />
+              <h6>
+                {pokemon
+                  .toLowerCase()
+                  .split('-')
+                  .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
+                  .join(' ')
                 }
-                />
-                <h6>
-                  {pokemon
-                    .toLowerCase()
-                    .split('-')
-                    .map(letter => letter.charAt(0).toUpperCase() + letter.substring(1))
-                    .join(' ')
-                  }
-                </h6>
-              </center>
+              </h6>
+            </center>
           </div>
         </Card>
       </StyledLink>
