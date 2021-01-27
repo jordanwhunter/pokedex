@@ -19,8 +19,8 @@
   ## A Pokédex Built in React Utilizing Hooks!
   
   
-  Powered by <a href="https://pokeapi.co/">PokéAPI.co</a>, this pokédex catalogs all 898+ pokémon using ```ES6/ES7 Syntax```, ```State``` and ```Hooks```!<br>
-  To view the pokédex click <a href="https://jsreact-pokedex.herokuapp.com/">here</a> (could require refresh of page to launch).
+  Powered by <a href="https://pokeapi.co/">PokéAPI.co</a>, this pokédex catalogs all 898+ pokémon using ```ES6/ES7 Syntax```, ```State``` and ```Hooks```!<br> As you navigate through increments of pokémon, simply select one to have information populate in another tab.<br> 
+  To view the pokédex click <a href="https://jsreact-pokedex.herokuapp.com/">here</a> **(if link loads saying "Application Error" just refresh the page).**
   <br><br>
   Clicking on a specific pokémon gives you access to their:<br>
   * Name
@@ -41,32 +41,35 @@
   * Effort Values
   <br><br>
   <p align="center">
-    <img src="https://user-images.githubusercontent.com/69367907/105202991-91e15480-5b10-11eb-8358-a6712caa7206.png">
+    <img src="https://user-images.githubusercontent.com/69367907/106052922-2c650900-60b8-11eb-9322-df3902a898d6.png">
   </p>
   <p align="center">
-    <img src="https://user-images.githubusercontent.com/69367907/105203129-c2c18980-5b10-11eb-9017-8b7063fa34f4.png">
+    <img src="https://user-images.githubusercontent.com/69367907/106052994-430b6000-60b8-11eb-8b9d-91cb4847317e.png">
   </p>
   
   ## Table of Contents
   * [Installation](#installation)
-  * [Usage](#usage)
+  * [Technologies](#technologies)
   * [Contributing](#contributing)
   * [License](#license)
   
   ## Installation
-  This application was built with ReactJS. If initiating build, make sure to do so using ```npx create-react-app <project-name>```
+  This application was built with React. If initiating build, make sure to do so using ```npx create-react-app <project-name>```
   
   If cloning to personal machine, open repository in terminal and ```cd client```. From there, run ```npm install``` to install all modules listed within the ```package.json``` file.<br>
   <br>
   Individual modules to be installed:<br>
-  ```axios```<br>
-  ```bootstrap```<br>
-  ```react-bootstrap-icons```<br>
-  ```react-router-dom```<br>
-  ```styled-components```
+  * ```axios```<br>
+  * ```bootstrap```<br>
+  * ```react-bootstrap-icons```<br>
+  * ```react-router-dom```<br>
+  * ```styled-components```
   
-  ## Usage 
-  Simply click the provided link above. Scroll through pokémon listed according to their index number. Paginate through 20 pokémon at a time. Click a specific pokémon to be redirected to a page listing all of their stats and abilities.
+  ## Technologies
+  * <a href="www.reactjs.org" target="_blank">React.js</a>: front-end UI/UX JavaScript library
+  * <a href="www.jquery.com" target="_blank">jQuery</a>: front-end JavaScript framework
+  * <a href="www.npmjs.com" target="_blank">NPM</a>: [Node Package Manager] - dependency management
+  * <a href="www.getbootstrap.com" target="_blank">Bootstrap</a>: CSS framework
    
   ## Contributing
   Star it. Clone it. Modify it. Submit a PR. <br>
