@@ -50,6 +50,8 @@
   ## Table of Contents
   * [Installation](#installation)
   * [Technologies](#technologies)
+  * [Authors](#authors)
+  * [Roadmap](#roadmap)
   * [Contributing](#contributing)
   * [License](#license)
   
@@ -70,7 +72,16 @@
   * <a href="www.jquery.com" target="_blank">jQuery</a>: front-end JavaScript framework
   * <a href="www.npmjs.com" target="_blank">NPM</a>: [Node Package Manager] - dependency management
   * <a href="www.getbootstrap.com" target="_blank">Bootstrap</a>: CSS framework
-   
+  
+  ## Authors
+  <a href="www.https://github.com/jordanwhunter" target="_blank">Jordan Hunter</a>
+
+  ## Roadmap
+  Future features to be implemented:<br>
+  * Search bar navigation
+  * Modal functionality when viewing ```Pokemon.js``` data
+  * Evolutionary data included with applicable pokémon
+  
   ## Contributing
   Star it. Clone it. Modify it. Submit a PR. <br>
   Fork it to your own repository, even. Keep yourself a copy and go wild.
