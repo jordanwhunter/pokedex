@@ -41,10 +41,10 @@
   * Effort Values
   <br><br>
   <p align="center">
-    <img src="https://user-images.githubusercontent.com/69367907/106052922-2c650900-60b8-11eb-9322-df3902a898d6.png">
+    <img src="https://user-images.githubusercontent.com/69367907/107819820-c4652280-6d47-11eb-8968-201ea1aa3288.png">
   </p>
   <p align="center">
-    <img src="https://user-images.githubusercontent.com/69367907/106052994-430b6000-60b8-11eb-8b9d-91cb4847317e.png">
+    <img src="https://user-images.githubusercontent.com/69367907/107819845-d0e97b00-6d47-11eb-8fcd-bc6f909460af.png">
   </p>
   
   ## Table of Contents
