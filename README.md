@@ -12,7 +12,9 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/languages/top/jordanwhunter/pokedex?style=flat&logo=appveyor">
+  <img src="https://img.shields.io/github/languages/top/jordanwhunter/pokedex?style=flat&logo=javascript">
+  <img src="https://img.shields.io/badge/html-2.2%25-blue?style=flat&logo=html5">
+  <img src="https://img.shields.io/badge/css-2.1%25-blue?style=flat&logo=css3">
 </p> 
   
   
