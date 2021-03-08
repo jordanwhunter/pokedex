@@ -58,6 +58,7 @@ const PokemonCard = ({ pokemon, url }) => {
       <StyledLink 
         to={`pokemon/${indexNum}`}
         target='_blank'
+        // title={`#${indexNum}:` + pokemon}
       >
         <Card className='card'>
           <p className='card-header'>
