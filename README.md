@@ -12,8 +12,8 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/JavaScript-95.8%25-blue?style=flat&logo=javascript">
-  <img src="https://img.shields.io/badge/HTML5-2.1%25-blue?style=flat&logo=html5">
+  <img src="https://img.shields.io/badge/JavaScript-95.7%25-blue?style=flat&logo=javascript">
+  <img src="https://img.shields.io/badge/HTML5-2.2%25-blue?style=flat&logo=html5">
   <img src="https://img.shields.io/badge/CSS3-2.1%25-blue?style=flat&logo=css3">
 </p> 
   
