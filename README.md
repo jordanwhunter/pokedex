@@ -21,8 +21,7 @@
   ## A Pokédex Built in React Utilizing Hooks!
   
   
-  Powered by <a href="https://pokeapi.co/">PokéAPI.co</a>, this pokédex catalogs all 898+ pokémon using ```ES6/ES7 Syntax```, ```Styled Components```, ```State``` and ```Hooks```!<br> As you navigate through increments of pokémon, simply select one to have information populate in another tab.<br> 
-  To view the pokédex click <a href="https://jordanwhunter.github.io/pokedex/" target="_blank">here</a>.
+  Powered by <a href="https://pokeapi.co/">PokéAPI.co</a>, this pokédex catalogs all 898+ pokémon using ```ES6/ES7 Syntax```, ```Styled Components```, ```State``` and ```Hooks```! As you navigate through increments of pokémon, simply select one to have information populate in another tab. To view the pokédex click <a href="https://jordanwhunter.github.io/pokedex/" target="_blank">here</a>.
   <br><br>
   Clicking on a specific pokémon gives you access to their:<br>
   * Name
