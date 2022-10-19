@@ -92,7 +92,7 @@ const Pokemon = (props) => {
     } = pokemon
 
     const { front_default } = sprites
-    const fullImageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`; //Full-sized sprite
+    const fullImageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
 
     let [
       hp, 
